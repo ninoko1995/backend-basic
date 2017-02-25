@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+		<div class='top-wrapper'>
+		  <div class='top-message'>
+				<h1>Welcome to <strong>Bookers</strong>!!</h1>
+				<p>In <strong>Bookers</strong> , you can share and exchange your opinions and impressions about various books<span class='glyphicon glyphicon-book'></span></p>
+				<p>click <strong><%= link_to 'here',books_path%></strong> to start <span class='glyphicon glyphicon-send'></span></p>
+			</div>
+		</div>
+  </body>
+</html>
