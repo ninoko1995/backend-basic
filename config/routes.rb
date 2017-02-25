@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'books#index'
-  resources :books,only:[:create,:new,:edit,:update,:show,:destroy]
+  root 'home#top'
+  resources :books,only:[:index,:create,:edit,:update,:show,:destroy]
 end
