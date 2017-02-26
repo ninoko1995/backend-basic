@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only:[:create,:edit,:update,:destory]
+  before_action :set_user,only:[:index,:show,:edit]
 
   def index
     @books = Book.all
@@ -43,5 +44,9 @@ class BooksController < ApplicationController
 
     def book_params
       params.require(:book).permit(:title, :comment, :prace)
+    end
+
+    def set_user
+      @user=current_user
     end
 end

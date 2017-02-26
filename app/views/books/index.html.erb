@@ -1,32 +1,49 @@
 <div class='sub-column col-lg-3 col-md-3'>
   <% if logged_in? %>
-    <h2>New Comment</h2>
-    <br>
+    <div class='up-sub'>
+      <h2>User info</h2>
+      <p>H.N:<%=@user.name%></p>
+      <p>email:<%=@user.email%></p>
+      <p><%= link_to 'logout',destroy_user_session_path(@user),method: :delete%></p>
+    </div>
 
-    <%= form_for(@book) do |f| %>
-      
-      <div class="field">
-        <p><%= f.label :title%><span class='glyphicon glyphicon-pencil'></span></p>
-        <%= f.text_field :title ,placeholder:'name of the book you read',class: 'black'%>
-      </div>
+    <div class='under-sub'>
+      <h2>New Comment</h2>
       <br>
 
-      <div class="field">
-        <p><%= f.label :comment %><span class='glyphicon glyphicon-pencil'></span><br>
-        <%= f.text_area :comment ,placeholder:'What are you feeling after reading?',class: 'black'%></p>
-      </div>
+      <%= form_for(@book) do |f| %>
+        
+        <div class="field">
+          <p><%= f.label :title%><span class='glyphicon glyphicon-pencil'></span></p>
+          <%= f.text_field :title ,placeholder:'name of the book you read',class: 'black'%>
+        </div>
+        <br>
 
-      <div class="actions">
-        <%= f.submit :class => 'btn btn-success' %>
-      </div>
-    <% end %>
+        <div class="field">
+          <p><%= f.label :comment %><span class='glyphicon glyphicon-pencil'></span><br>
+          <%= f.text_area :comment ,placeholder:'What are you feeling after reading?',class: 'black'%></p>
+        </div>
+
+        <div class="actions">
+          <%= f.submit :class => 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+
   <% else %>
-    <p><strong><%= link_to 'Log in',new_user_session_path %></strong> | <strong><%= link_to 'Sign up',new_user_registration_path %></strong></p>
+
+    <div class='up-sub'>
+      <p><strong><%= link_to 'Log in',new_user_session_path %></strong> | <strong><%= link_to 'Sign up',new_user_registration_path %></strong></p>
+    </div>
+
   <% end %>
 </div>
 
+
+
 <div class='col-lg-1 col-md-1 col-sm-1'>
 </div>
+
 <div class='main-column col-lg-8 col-md-8'>
   <h1>Comments</h1>
   <br>
